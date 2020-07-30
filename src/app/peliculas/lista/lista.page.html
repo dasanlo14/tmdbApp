@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>lista</ion-title>
+    <ion-title>lista de peliculas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <p>Default searchbar</p>
+
+  <ion-searchbar placeholder="Búsqueda" [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-item button *ngFor="let item of (resultadosBusqueda | async)" [routerLink]="['/lista', item.id]">
+        {{ item.title }}
+    </ion-item>
+  </ion-list>
 
 </ion-content>

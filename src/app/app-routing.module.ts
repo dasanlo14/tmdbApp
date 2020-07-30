@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'lista',
     pathMatch: 'full'
   },
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./peliculas/lista/lista.module').then( m => m.ListaPageModule)
   },
   {
-    path: 'detalle',
+    path: 'lista/:id',
     loadChildren: () => import('./peliculas/detalle/detalle.module').then( m => m.DetallePageModule)
   },
 ];

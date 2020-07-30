@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TmdbServiceService } from 'src/app/servicios/tmdb-service.service';
 
 @Component({
   selector: 'app-lista',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaPage implements OnInit {
 
-  constructor() { }
+  terminoBusqueda = "";
+  resultadosBusqueda: Observable<any>;
+  
+  constructor(private tmdbService : TmdbServiceService) { }
 
   ngOnInit() {
   }
 
+  busqueda(){
+    this.resultadosBusqueda = this.tmdbService.mostrarLista(this.terminoBusqueda);
+  }
 }
