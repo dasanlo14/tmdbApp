@@ -9,6 +9,8 @@ import { TmdbServiceService } from 'src/app/servicios/tmdb-service.service';
 })
 export class ListaPage implements OnInit {
 
+  github = "https://github.com/dasanlo14";
+
   terminoBusqueda = "";
   resultadosBusqueda:Observable<any>;
   resultadoArray:any[];

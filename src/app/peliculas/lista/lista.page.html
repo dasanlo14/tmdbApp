@@ -1,38 +1,21 @@
 <ion-header>
-<!--   <ion-toolbar>
-    <ion-menu-button></ion-menu-button>
-    <ion-title>WELCOME TO THE MOVIE DATABASE</ion-title>
-  </ion-toolbar> -->
-  <ion-toolbar color="warning">
-    <ion-buttons slot="start">
-      <ion-menu-button auto-hide="false"></ion-menu-button>
-    </ion-buttons>
-    <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title>WELCOME TO THE MOVIE DATABASE!</ion-title>
+  <ion-toolbar color=primary>
+    <ion-title text-center class="titulo" size="large"> WELCOME TO THE MOVIE DATABASE</ion-title>
+    <img slot="start"src='/assets/tmdb_icon.svg' height="150px" width="150px">
+    
+    <ion-item  slot="end" lines="none" color="primary">
+      <ion-icon slot = "start" name="logo-github"></ion-icon>
+      <ion-label>github.com/dasanlo14</ion-label>
+    </ion-item> 
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item lines="full">
-      <ion-icon slot="start" name="moon"></ion-icon>
-      <ion-label>
-        Toggle Dark Theme
-      </ion-label>
-      <ion-toggle id="themeToggle" slot="end"></ion-toggle>
-    </ion-item>
-  </ion-list>
-
+<ion-content color="primary">
   <ion-searchbar placeholder="Búsqueda" [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar>
-
-  <ion-list>
+  <!-- <ion-list no-lines class = "ajustar"> -->
     <ion-item button *ngFor="let item of resultadoArray" [routerLink]="['/lista', item.id]">
         {{ item.title }}
     </ion-item>
-  </ion-list>
+  <!-- </ion-list> -->
+
 </ion-content>
