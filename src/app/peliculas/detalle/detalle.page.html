@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detalle</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ detalles?.original_title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+<p>ID: {{detalles?.id}}</p>
+<p>TITULO: {{detalles?.title}}</p>
+<p>VALORACION: {{detalles?.popularity}}</p>
+<p>SINOPSIS: {{detalles?.overview}}</p>
+<p>ESTADO: {{detalles?.status}}</p>
 
 </ion-content>

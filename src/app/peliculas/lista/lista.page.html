@@ -1,19 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>lista de peliculas</ion-title>
+<!--   <ion-toolbar>
+    <ion-menu-button></ion-menu-button>
+    <ion-title>WELCOME TO THE MOVIE DATABASE</ion-title>
+  </ion-toolbar> -->
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>WELCOME TO THE MOVIE DATABASE!</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <p>Default searchbar</p>
+  <ion-list>
+    <ion-item lines="full">
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>
+        Toggle Dark Theme
+      </ion-label>
+      <ion-toggle id="themeToggle" slot="end"></ion-toggle>
+    </ion-item>
+  </ion-list>
 
   <ion-searchbar placeholder="Búsqueda" [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar>
 
   <ion-list>
-    <ion-item button *ngFor="let item of (resultadosBusqueda | async)" [routerLink]="['/lista', item.id]">
+    <ion-item button *ngFor="let item of resultadoArray" [routerLink]="['/lista', item.id]">
         {{ item.title }}
     </ion-item>
   </ion-list>
-
 </ion-content>
