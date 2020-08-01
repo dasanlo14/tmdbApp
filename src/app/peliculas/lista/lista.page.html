@@ -2,7 +2,6 @@
   <ion-toolbar color=primary>
     <ion-title text-center class="titulo" size="large"> WELCOME TO THE MOVIE DATABASE</ion-title>
     <img slot="start"src='/assets/tmdb_icon.svg' height="150px" width="150px">
-    
     <ion-item  slot="end" lines="none" color="primary">
       <ion-icon slot = "start" name="logo-github"></ion-icon>
       <ion-label>github.com/dasanlo14</ion-label>
@@ -11,11 +10,30 @@
 </ion-header>
 
 <ion-content color="primary">
-  <ion-searchbar placeholder="Search..." [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar>
-  <!-- <ion-list no-lines class = "ajustar"> -->
+  <ion-searchbar placeholder="Search..." [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar> 
     <ion-item button *ngFor="let item of resultadoArray" [routerLink]="['/lista', item.id]">
         {{ item.title }}
     </ion-item>
-  <!-- </ion-list> -->
-
 </ion-content>
+
+
+<!--
+  Línea 13:
+
+  [(ngModel)] = "terminoBusqueda" ----- se utiliza para vincular lo que nosotros escribamos en nuestra barra de búsqueda
+  con la variable "terminoBusqueda", utilizada en "lista.page.ts", y con la que nosotros podremos llamar al método "busqueda()" y encontrar las peliculas de acuerdo
+  de acuerdo con este termino  
+  
+  (ionChange)="busqueda($event) ----- cuando se produzca un cambio en nuestra barra de búsqueda se llamará al metodo "busqueda()" con el nuevo término 
+  introducido.
+
+  Línea 14:
+
+  *ngFor="let item of resultadoArray" ----- nos mostrará un <ion-item> por cada resultado encontrado en "resultadoArray"
+
+  button ----- hace que cada resultado sea un botón.
+
+  [routerLink]="['/lista', item.id]" -----  gracias al routerLink, cuando pulsemos el botón, este nos llevará a la ruta que nosotros hemos establecido (/lista)
+  añadiendole al final el "id" de la pelicula que hayamos escogido.
+  
+-->

@@ -16,22 +16,25 @@ export class ListaPage implements OnInit {
   resultadoArray:any[];
   peliculasObservable = null;
 
+  /**
+   * 
+   * @param tmdbService --> inyectamos nuestro servicio para poder utilizar sus metodos.
+   */
   constructor(public tmdbService : TmdbServiceService) { }
 
   ngOnInit() {
   }
 
+  /**
+   * @method busqueda() --> con este metodo nos suscribimos al servicio que nosotros hemos creado y, llamando a su metodo "mostrarLista()" pasándole nuestro término de 
+   * búsqueda, nos devolverá un array con las diferentes películas que ha encontrado en la base de datos que coinciden con nuestro término de búsqueda.
+   */
   busqueda(){
-   
-    // this.resultadosBusqueda = this.tmdbService.mostrarLista(this.terminoBusqueda);
-
-   /*  this.tmdbService.mostrarLista(this.terminoBusqueda).subscribe(result => {
-      this.resultadosBusqueda = result;
-    }); */
 
    this.peliculasObservable = this.tmdbService.mostrarLista(this.terminoBusqueda);
    this.peliculasObservable.subscribe((dataPeliculas: any[]) =>{
      this.resultadoArray = dataPeliculas;
+
    })
   }
 }

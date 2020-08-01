@@ -21,16 +21,18 @@ export class TmdbServiceService {
   resultados:Observable<any>;
 
   constructor(private http: HttpClient) { }
-
-
-      //return this.http.get<any>('https://api.themoviedb.org/3/search/' + this.type + '?api_key=' + this.apiKey + this.language + '&query=' + busqueda);
-
-
+  
+  /**
+   * 
+   * @param busqueda --> Término que nosotros queremos buscar en la base de datos
+   * 
+   * @method  mostrarLista(busqueda) --> Este método se conecta con la API de "The Movie Database" a través de un enlace en el cual se encuentra nuestro
+   * término de búsqueda y nuestra clave de la API. Nos devuelve un objeto Observable el cual filtramos para obtener únicamente los campos que nosotros queremos,
+   * en este caso, el campo "results" que contiene las peliculas que coinciden con nuestro término de búsqueda.
+  
+   */
   mostrarLista(busqueda:String){
-    
-    
-    //return this.http.get('https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + busqueda).pipe(map(results =>  results ['results']));
-
+      
     this.resultados =  this.http.get('https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + busqueda)
     .pipe(
       map(results => {
@@ -42,8 +44,14 @@ export class TmdbServiceService {
 
   }
 
+  /**
+   * 
+   * @param id --> id de la pelicula que nosotros hemos elegido.
+   * 
+   * @method mostrarDetalles(id) --> Este metodo nos devuelve un objeto Observable con los parametros de la pelicula que nosotros hayamos elegido.
+   */
+
   mostrarDetalles(id){
-    //return this.http.get<any>('https://api.themoviedb.org/3/search/movie/' + id + '?api_key=' + this.apiKey);
     return this.http.get<any>('https://api.themoviedb.org/3/movie/' + id + '?api_key=' + this.apiKey);
   }
 }

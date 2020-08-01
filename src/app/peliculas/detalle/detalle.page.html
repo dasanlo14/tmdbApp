@@ -9,107 +9,62 @@
 
 <ion-content color = "primary">
 
-<ion-card *ngIf="detalles">
+<ion-card *ngIf="detalles">  <!-- La condición *ngIf="detalles" nos asegura que el objeto <ion-card> se construirá únicamente cuando la variable "detalles" no sea null -->
   <ion-card-content>
     <ion-grid>
       <ion-row>
+
         <ion-col size = "50px">
           <ion-item lines="none">
             <img src="{{detalles.poster_path ? 'https://image.tmdb.org/t/p/w185'+detalles.poster_path : 'assets/no-av.png'}}">
           </ion-item> 
         </ion-col>
+
         <ion-col>
+
           <ion-item lines="none">
-            <ion-label class = "title ">{{detalles?.title}}</ion-label>
+            <ion-label class = "title ">{{detalles.title}}</ion-label>  
           </ion-item>
-          <!-- <br> -->
+
           <ion-item lines="none" class="definicion">
             RELEASE DATE: &nbsp;   
-            <ion-label class = "letra ">{{detalles?.release_date}}</ion-label>
+            <ion-label class = "letra ">{{detalles.release_date}}</ion-label>
           </ion-item>
-          <!-- <br> -->
+
           <ion-item lines="none" class="definicion">
             ORIGINAL LANGUAGE: &nbsp;
-            <ion-label class = "letra ">{{detalles?.original_language}}</ion-label>
+            <ion-label class = "letra ">{{detalles.original_language}}</ion-label>
           </ion-item>
-          <!-- <br> -->
+
           <ion-item lines="none" class="definicion">
             GENRES:
             <ion-item class = "letra" *ngFor="let genre of detalles?.genres" lines= "none"> 
-              |  {{genre.name}}|
+              |{{genre.name}}|
             </ion-item>
           </ion-item>
+
           <ion-item class="definicion" lines="none">
             IMDB RATE: &nbsp;
-             <ion-label class="letra">{{detalles?.vote_average}}</ion-label>
+             <ion-label class="letra">{{detalles.vote_average}}</ion-label>
           </ion-item>
+
         </ion-col>
+
       </ion-row>
+
       <ion-row>
+
         <ion-col>
+
           <ion-item lines="none" class="definicion">SYNOPSIS</ion-item>
           <ion-item class="synopsis" lines="none" size="40px">
-              {{detalles?.overview}}
+              {{detalles.overview}}
           </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    
 
-      
-       
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>     
   </ion-card-content>
 </ion-card>
 </ion-content>
-
-<!-- <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{ detalles?.original_title }}</ion-title>
-  </ion-toolbar>
-</ion-header>
- 
-{{ detalles?.title }}
-{{ detalles?.homepage }}
-{{ detalles?.original_language }}
-
-<ion-content>
- 
-  <ion-card *ngIf="detalles">
-    <ion-card-header>
-      <ion-card-title>
-        {{ detalles?.title }}
-      </ion-card-title>
-      <ion-card-subtitle>
-        {{ detalles?.homepage }}
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content text-center>
-      <img src="{{detalles.backdrop_path ? 'https://image.tmdb.org/t/p/w500'+detalles.backdrop_path : 'assets/no-av-trailer.png'}}" />
-      {{ detalles?.original_language }}
- 
-      <ion-item lines="none">
-        <ion-icon name="star-half" slot="start"></ion-icon>
-        <ion-label>{{ detalles?.status }}</ion-label>
-      </ion-item>
- 
-      <ion-item lines="none">
-        <ion-icon name="clipboard" slot="start"></ion-icon>
-        <ion-label text-wrap>{{ detalles?.runtime }}</ion-label>
-      </ion-item>
- 
-      <ion-item lines="none">
-        <ion-icon name="contacts" slot="start"></ion-icon>
-        <ion-label text-wrap>{{ detalles?.overview }}</ion-label>
-      </ion-item>
- 
-      <ion-button expand="full" (click)="openWebsite()" *ngIf="information.Website && information.Website != 'N/A'">
-        <ion-icon name="open" slot="start"></ion-icon>
-        Open Website
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
-  
-</ion-content> -->
