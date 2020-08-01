@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content color="primary">
-  <ion-searchbar placeholder="Búsqueda" [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar>
+  <ion-searchbar placeholder="Search..." [(ngModel)] = "terminoBusqueda" (ionChange)="busqueda($event)"></ion-searchbar>
   <!-- <ion-list no-lines class = "ajustar"> -->
     <ion-item button *ngFor="let item of resultadoArray" [routerLink]="['/lista', item.id]">
         {{ item.title }}
